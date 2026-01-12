@@ -51,8 +51,8 @@ ggcat	salmonella	32	13.66	1767907328
 ggcat	salmonella	64	17.88	1876393984
 ggcat	salmonella	128	26.72	1939771392
 ggcat	salmonella	256	42.27	2633830400
-ggcat	salmonella	512	None	None
-ggcat	salmonella	1024	None	None
+ggcat	salmonella	512	74.77	3489087488
+ggcat	salmonella	1024	147.26	4815478784
 ggcat	salmonella	2048	None	None
 ggcat	salmonella	4096	None	None
 ggcat	salmonella	8192	None	None
