@@ -41,7 +41,7 @@ ggcat	random	512	51.83	3412959232
 ggcat	random	1024	116.75999999999999	5760692224
 ggcat	random	2048	215.41	8412528640
 ggcat	random	4096	482.78	20917125120
-ggcat	random	8192	None	None
+ggcat	random	8192	934.2	36813484032
 ggcat	random	16384	None	None
 ggcat	salmonella	2	None	None
 ggcat	salmonella	4	None	None
