@@ -49,6 +49,7 @@ datasets = ["random", "salmonella"]
 genome_count_lists = [[2**i for i in range(1,14+1)], [2**i for i in range(1,16+1)]]
 tools= ["themisto", "ggcat", "bifrost"]
 
+print("\t".join(["tool", "dataset", "n_genomes", "time_seconds", "mem_bytes"]))
 for tool in tools:
     for dataset_idx, dataset in enumerate(datasets):
         for n in genome_count_lists[dataset_idx]:
