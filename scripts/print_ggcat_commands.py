@@ -1,5 +1,5 @@
-dataset = "random"
-max_power = 14
+dataset = "salmonella"
+max_power = 17
 
 for i in range(1, max_power+1):
     n = 2**i
