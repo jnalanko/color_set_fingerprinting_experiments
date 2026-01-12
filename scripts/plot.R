@@ -10,13 +10,20 @@ df$time_seconds = as.numeric(df$time_seconds)
 
 p = ggplot(df) +
   geom_line(aes(x = n_genomes, y = mem_bytes, color = tool)) + 
-  geom_line(aes(x = n_genomes, y = mem_bytes, color = tool)) + 
+  geom_point(aes(x = n_genomes, y = mem_bytes, color = tool)) + 
   facet_wrap(~dataset) +
   scale_x_log10() + 
   scale_y_log10() +
   theme_minimal()
-  #scale_x_continuous(trans = "log2") + 
-  #scale_y_continuous(trans = "log2") +
-  
+
+print(p)
+
+p = ggplot(df) +
+  geom_line(aes(x = n_genomes, y = time_seconds, color = tool)) + 
+  geom_point(aes(x = n_genomes, y = time_seconds, color = tool)) + 
+  facet_wrap(~dataset) +
+  scale_x_log10() + 
+  scale_y_log10() +
+  theme_minimal()
 
 print(p)
