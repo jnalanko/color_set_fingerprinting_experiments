@@ -47,14 +47,17 @@ def parse_time_output(lines):
 
 datasets = ["salmonella", "random"]
 genome_count_lists = [[2**i for i in range(1,16+1)], [2**i for i in range(1,14+1)]]
-tools= ["themisto", "ggcat", "bifrost"]
+tools= ["themisto", "ggcat", "bifrost", "bifrost-updated"]
 
 print("\t".join(["tool", "dataset", "n_genomes", "time_seconds", "mem_bytes"]))
 for tool in tools:
     for dataset_idx, dataset in enumerate(datasets):
         for n in genome_count_lists[dataset_idx]:
             filename = f"logs/{dataset}_{n}_{tool}.log"
-            res = parse_time_output(open(filename).readlines())
-            print("{}\t{}\t{}\t{}\t{}".format(tool, dataset, n, res["elapsed_seconds"], res["max_rss_bytes"]))
+            try:
+                res = parse_time_output(open(filename).readlines())
+                print("{}\t{}\t{}\t{}\t{}".format(tool, dataset, n, res["elapsed_seconds"], res["max_rss_bytes"]))
+            except:
+                pass
 
 # res = parse_time_output(open(indexing_filename).readlines()) 
