@@ -45,8 +45,8 @@ def parse_time_output(lines):
     return {"elapsed_seconds": elapsed_seconds, "max_rss_bytes": max_rss_bytes, "temp_disk": disk_peak}
 
 
-datasets = ["random", "salmonella"]
-genome_count_lists = [[2**i for i in range(1,14+1)], [2**i for i in range(1,16+1)]]
+datasets = ["salmonella", "random"]
+genome_count_lists = [[2**i for i in range(1,16+1)], [2**i for i in range(1,14+1)]]
 tools= ["themisto", "ggcat", "bifrost"]
 
 print("\t".join(["tool", "dataset", "n_genomes", "time_seconds", "mem_bytes"]))
