@@ -67,4 +67,7 @@ bifrost	salmonella	32	14.24	129019904
 bifrost	salmonella	64	43.83	176373760
 bifrost	salmonella	128	52.29	229486592
 bifrost	salmonella	256	138.61	334295040
-bifrost	salmonella	512	None	None
+bifrost	salmonella	512	250.31	578854912
+bifrost	salmonella	1024	547.6	889643008
+bifrost	salmonella	2048	1267.21	1615233024
+bifrost	salmonella	4096	None	None
