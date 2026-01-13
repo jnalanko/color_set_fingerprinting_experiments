@@ -42,7 +42,7 @@ ggcat	random	1024	116.75999999999999	5760692224
 ggcat	random	2048	215.41	8412528640
 ggcat	random	4096	482.78	20917125120
 ggcat	random	8192	934.2	36813484032
-ggcat	random	16384	None	None
+ggcat	random	16384	1914.39	58724212736
 ggcat	salmonella	2	11.65	1487974400
 ggcat	salmonella	4	9.86	1497862144
 ggcat	salmonella	8	10.57	1586917376
@@ -54,8 +54,8 @@ ggcat	salmonella	256	42.27	2633830400
 ggcat	salmonella	512	74.77	3489087488
 ggcat	salmonella	1024	147.26	4815478784
 ggcat	salmonella	2048	236.87	7308374016
-ggcat	salmonella	4096	None	None
-ggcat	salmonella	8192	None	None
-ggcat	salmonella	16384	None	None
-ggcat	salmonella	32768	None	None
-ggcat	salmonella	65536	None	None
+ggcat	salmonella	4096	478.81	11107983360
+ggcat	salmonella	8192	822.43	18818031616
+ggcat	salmonella	16384	1657.45	35863011328
+ggcat	salmonella	32768	4065	71442620416
+ggcat	salmonella	65536	9350	100052320256
