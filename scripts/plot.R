@@ -3,6 +3,7 @@ library(tidyr)
 library(dplyr)
 
 df = read.csv("results/table.tsv", sep = "\t", header = TRUE)
+df = df %>% filter(tool != "bifrost-updated")
 df$tool = as.factor(df$tool)
 df$dataset = as.factor(df$dataset)
 df$mem_bytes = as.numeric(df$mem_bytes)
