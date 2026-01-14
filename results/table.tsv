@@ -93,4 +93,6 @@ metagraph_anno	salmonella	16	38.57	1141428224
 metagraph_anno	salmonella	32	79.38	2381742080
 metagraph_anno	salmonella	64	177.98	4276396032
 metagraph_anno	salmonella	128	371.25	9148284928
-metagraph_anno	salmonella	256	None	None
+metagraph_anno	salmonella	256	876.23	16904871936
+metagraph_anno	salmonella	512	2415.24	31429591040
+metagraph_anno	salmonella	1024	None	None
