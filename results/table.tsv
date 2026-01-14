@@ -72,7 +72,7 @@ bifrost	salmonella	1024	547.6	889643008
 bifrost	salmonella	2048	1267.21	1615233024
 bifrost	salmonella	4096	3266.55	3127046144
 bifrost	salmonella	8192	8706	5981081600
-bifrost	salmonella	16384	None	None
+bifrost	salmonella	16384	32269	16949592064
 bifrost	random	2	5.91	98951168
 bifrost	random	4	6.3	121196544
 bifrost	random	8	12.86	166338560
@@ -95,4 +95,5 @@ metagraph_anno	salmonella	64	177.98	4276396032
 metagraph_anno	salmonella	128	371.25	9148284928
 metagraph_anno	salmonella	256	876.23	16904871936
 metagraph_anno	salmonella	512	2415.24	31429591040
-metagraph_anno	salmonella	1024	None	None
+metagraph_anno	salmonella	1024	6471	66546401280
+metagraph_anno	salmonella	2048	None	None
