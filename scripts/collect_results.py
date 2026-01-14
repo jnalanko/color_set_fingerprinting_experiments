@@ -47,7 +47,7 @@ def parse_time_output(lines):
 
 datasets = ["salmonella", "random"]
 genome_count_lists = [[2**i for i in range(1,16+1)], [2**i for i in range(1,14+1)]]
-tools= ["themisto", "ggcat", "bifrost", "bifrost-updated"]
+tools= ["themisto", "ggcat", "bifrost", "metagraph_anno"]
 
 print("\t".join(["tool", "dataset", "n_genomes", "time_seconds", "mem_bytes"]))
 for tool in tools:
