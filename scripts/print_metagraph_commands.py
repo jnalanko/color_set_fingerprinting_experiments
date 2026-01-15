@@ -17,4 +17,4 @@ for i in range(1, max_power+1):
     anno_output = f"metagraph/{dataset}_{n}.fna.anno"
     anno_log_output = f"logs/{dataset}_{n}_metagraph_anno.log"
     # Build annotation 
-    print(f"cat {input} | /usr/bin/time -v xargs ~/code/metagraph/metagraph_DNA annotate -i {output}.dbg -o {anno_output} --anno-filename --verbose --anno-type row -p 1 --fwd-and-reverse --mem-cap-gb {mem_cap_gb} 2>&1 | tee {anno_log_output}")
+    print(f"cat {input} | /usr/bin/time -v xargs ~/code/metagraph/metagraph_DNA annotate -i {output}.dbg -o {anno_output} --anno-filename --verbose --anno-type row -p 32 --fwd-and-reverse --mem-cap-gb {mem_cap_gb} 2>&1 | tee {anno_log_output}")
