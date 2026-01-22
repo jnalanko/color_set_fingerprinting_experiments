@@ -43,6 +43,7 @@ ggcat	salmonella	4096	86.53	6842351616
 ggcat	salmonella	8192	148.6	13234384896
 ggcat	salmonella	16384	365.27	24066445312
 ggcat	salmonella	32768	821.36	31875432448
+ggcat	salmonella	65536	2032.7	50749779968
 ggcat	random	2	2.4	300343296
 ggcat	random	4	2.34	415715328
 ggcat	random	8	2.42	427597824
@@ -71,7 +72,6 @@ bifrost	salmonella	2048	772.9	1675894784
 bifrost	salmonella	4096	1836.56	3283447808
 bifrost	salmonella	8192	4408	6157631488
 bifrost	salmonella	16384	12565	17519640576
-bifrost	salmonella	32768	None	None
 bifrost	random	2	9.92	137940992
 bifrost	random	4	9.2	191840256
 bifrost	random	8	14.16	299110400
