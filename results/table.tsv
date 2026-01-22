@@ -14,6 +14,7 @@ themisto	salmonella	4096	655.76	3221602304
 themisto	salmonella	8192	1314.19	4679872512
 themisto	salmonella	16384	3287.1	12453744640
 themisto	salmonella	32768	8586	26174431232
+themisto	salmonella	65536	18323	50056851456
 themisto	random	2	1.4	108122112
 themisto	random	4	2.15	147374080
 themisto	random	8	3.72	324833280
