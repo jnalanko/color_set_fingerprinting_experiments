@@ -9,7 +9,7 @@ def print_all(dataset, max_power):
         mem_cap_gb = 100
 
         # Build DBG
-        print(f"cat {input} | /usr/bin/time -v xargs {binary_path} build -k 31 -o {output} -p 32 --mem-cap-gb {mem_cap_gb} --verbose --mode canonical 2>&1 | tee {log_output}")
+        print(f"cat {input} | /usr/bin/time -v xargs {binary_path} build -k 31 -o {output} -p 32 --mem-cap-gb {mem_cap_gb} --verbose --mode canonical --graph sshash 2>&1 | tee {log_output}")
 
         anno_output = f"metagraph/{dataset}_{n}.fna.anno"
         anno_log_output = f"logs/{dataset}_{n}_metagraph_anno.log"
