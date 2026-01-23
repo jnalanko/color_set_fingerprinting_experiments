@@ -73,6 +73,7 @@ bifrost	salmonella	2048	772.9	1675894784
 bifrost	salmonella	4096	1836.56	3283447808
 bifrost	salmonella	8192	4408	6157631488
 bifrost	salmonella	16384	12565	17519640576
+bifrost	salmonella	32768	31263	37451812864
 bifrost	random	2	9.92	137940992
 bifrost	random	4	9.2	191840256
 bifrost	random	8	14.16	299110400
@@ -86,3 +87,4 @@ bifrost	random	1024	750.76	7280713728
 bifrost	random	2048	1396.09	11612975104
 bifrost	random	4096	2764.6	19831402496
 bifrost	random	8192	5737	35702321152
+bifrost	random	16384	None	None
