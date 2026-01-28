@@ -44,7 +44,7 @@ themisto_to_disk	salmonella	4096	928.2	2626805760
 themisto_to_disk	salmonella	8192	1860.61	3460657152
 themisto_to_disk	salmonella	16384	4611	6540935168
 themisto_to_disk	salmonella	32768	12228	10587983872
-themisto_to_disk	salmonella	65536	None	None
+themisto_to_disk	salmonella	65536	26625	14768844800
 themisto_to_disk	random	2	3.69	115855360
 themisto_to_disk	random	4	6.79	163094528
 themisto_to_disk	random	8	18.11	400527360
