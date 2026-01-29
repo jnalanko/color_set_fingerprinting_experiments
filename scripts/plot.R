@@ -21,8 +21,8 @@ shared_legend = scale_color_manual(
   labels = c("bifrost" = "Bifrost",
              "ggcat" = "GGCAT 2",
              "metagraph_1g_anno" = "Metagraph (row-major)",
-             "themisto" = "Our algorithm",
-             "themisto_to_disk" = "Our algorithm to disk"),
+             "themisto" = "Our method",
+             "themisto_to_disk" = "Our method to disk"),
   name = "Method"
 )
 
