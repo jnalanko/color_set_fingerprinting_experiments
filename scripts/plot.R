@@ -20,7 +20,7 @@ shared_legend = scale_color_manual(
   values = c("bifrost" = "#ffbe0b", "ggcat" = "#fb5607", "metagraph_1gb_anno" = "#ff006e", "themisto" = "#8338ec", "themisto_to_disk" = "#3a86ff"),
   labels = c("bifrost" = "Bifrost",
              "ggcat" = "GGCAT 2",
-             "metagraph_1g_anno" = "Metagraph (row-major)",
+             "metagraph_1gb_anno" = "Metagraph (row-major)",
              "themisto" = "Our method",
              "themisto_to_disk" = "Our method to disk"),
   name = "Method"
