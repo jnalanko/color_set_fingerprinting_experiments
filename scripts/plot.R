@@ -17,7 +17,7 @@ shared_theme =   theme(
   plot.title = element_text(hjust = 0.5)
 )
 shared_legend = scale_color_manual(
-  values = c("bifrost" = "#ffbe0b", "ggcat" = "#fb5607", "metagraph_1gb_anno" = "#ff006e", "themisto" = "#8338ec", "themisto_to_disk" = "#3a86ff"),
+  values = c("bifrost" = "#ffbe0b", "ggcat" = "#3a86ff", "metagraph_1gb_anno" = "#ff006e", "themisto" = "#8338ec", "themisto_to_disk" = "#28b800"),
   labels = c("bifrost" = "Bifrost",
              "ggcat" = "GGCAT 2",
              "metagraph_1gb_anno" = "Metagraph row-major",
@@ -39,7 +39,7 @@ p_mem = ggplot(df) +
     minor_breaks = rep(1:9, times = 3) * 10^rep(5:12, each = 9)
   ) +
   labs(
-    x = "# Genomes",
+    x = "Number of genomes",
     y = "Memory (bytes)",
     color = "Method",
     title = "Memory"
@@ -63,7 +63,7 @@ p_time = ggplot(df) +
     minor_breaks = rep(1:9, times = 3) * 10^rep(0:6, each = 9)
   ) +
   labs(
-    x = "# Genomes",
+    x = "Number of genomes",
     y = "Time (minutes)",
     color = "Method",
     title = "Time"

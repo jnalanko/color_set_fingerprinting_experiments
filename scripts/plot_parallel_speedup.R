@@ -27,7 +27,17 @@ p = ggplot(df) +
     linetype = "dotted",
     color = "black"
   ) +
+  labs(
+    x = "Number of threads",
+    y = "Speedup"
+  ) +
+  scale_color_manual(
+    values = c("random_512" = "#ff3333", "salmonella_512" = "#5555ff"),
+    labels = c("random_512" = "Random-512",
+               "salmonella_512" = "Salmonella-512"),
+    name = "Dataset"
+  ) +
   theme_minimal() + shared_theme
 
 print(p)
-ggsave("plots/speedup.pdf", p)
+ggsave("plots/speedup.pdf", p, width = 5, height = 2)
