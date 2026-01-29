@@ -1,4 +1,5 @@
 n_pieces = 8
+d = 10000
 
 def print_all(dataset, max_power):
     for i in range(1, max_power+1):
@@ -6,10 +7,10 @@ def print_all(dataset, max_power):
         input = f"fof/{dataset}_fof_{n}.txt"
         sbwt = f"SBWTs/{dataset}_{n}.sbwt"
         lcs = f"SBWTs/{dataset}_{n}.lcs"
-        output = f"themisto2_to_disk/{dataset}_{n}.thm2"
-        log_output = f"logs/{dataset}_{n}_themisto_to_disk.log"
+        output = f"themisto2_to_disk/{dataset}_{n}_d{d}.thm2"
+        log_output = f"logs/{dataset}_{n}_themisto_to_disk_d{d}.log"
 
-        print(f"/usr/bin/time -v themisto2 build -i {input} --sbwt {sbwt} --lcs {lcs} -o {output} --temp-dir temp -k 31 -d 30 -t 32 --index-type sparse-dense --to-disk-in-pieces {n_pieces} 2>&1 | tee {log_output}")
+        print(f"/usr/bin/time -v themisto2 build -i {input} --sbwt {sbwt} --lcs {lcs} -o {output} --temp-dir temp -k 31 -d {d} -t 32 --index-type sparse-dense --to-disk-in-pieces {n_pieces} 2>&1 | tee {log_output}")
 
 print_all("random", 14)
 print_all("salmonella", 17)
