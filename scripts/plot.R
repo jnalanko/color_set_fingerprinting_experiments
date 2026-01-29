@@ -10,6 +10,8 @@ df$mem_bytes = as.numeric(df$mem_bytes)
 df$time_seconds = as.numeric(df$time_seconds)
 df$time_minutes = df$time_seconds / 60
 
+df = df %>% filter(tool != "metagraph_1gb_anno") %>% filter(tool != "themisto_to_disk") %>% filter(tool != "themisto")
+
 shared_theme =   theme(
   panel.grid.major = element_line(color = "grey70", linewidth = 0.2),
   panel.grid.minor = element_line(color = "grey90", linewidth = 0.2),
@@ -17,12 +19,12 @@ shared_theme =   theme(
   plot.title = element_text(hjust = 0.5)
 )
 shared_legend = scale_color_manual(
-  values = c("bifrost" = "#ffbe0b", "ggcat" = "#3a86ff", "metagraph_1gb_anno" = "#ff006e", "themisto" = "#8338ec", "themisto_to_disk" = "#28b800"),
+  values = c("bifrost" = "#ffbe0b", "ggcat" = "#3a86ff", "metagraph_1gb_anno" = "#ff006e", "themisto_d10000" = "#8338ec", "themisto_to_disk_d10000" = "#28b800"),
   labels = c("bifrost" = "Bifrost",
              "ggcat" = "GGCAT 2",
              "metagraph_1gb_anno" = "Metagraph row-major",
-             "themisto" = "Our method",
-             "themisto_to_disk" = "Our method to disk"),
+             "themisto_d10000" = "Our method",
+             "themisto_to_disk_d10000" = "Our method to disk"),
   name = "Method"
 )
 
