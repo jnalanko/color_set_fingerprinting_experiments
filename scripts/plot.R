@@ -3,15 +3,23 @@ library(tidyr)
 library(dplyr)
 
 df = read.csv("results/table.tsv", sep = "\t", header = TRUE)
-df = df %>% filter(tool != "bifrost-updated")
 df$tool = as.factor(df$tool)
-df$dataset = as.factor(df$dataset)
+df$dataset = factor(df$dataset, levels = c("salmonella", "random"), labels = c("Salmonella", "Random"))
 df$mem_bytes = as.numeric(df$mem_bytes)
 df$time_seconds = as.numeric(df$time_seconds)
 
 shared_theme =   theme(
   panel.grid.major = element_line(color = "grey70", linewidth = 0.2),
   panel.grid.minor = element_line(color = "grey90", linewidth = 0.2),
+)
+shared_legend = scale_color_manual(
+  values = c("bifrost" = "#ffbe0b", "ggcat" = "#fb5607", "metagraph_1gb_anno" = "#ff006e", "themisto" = "#8338ec", "themisto_to_disk" = "#3a86ff"),
+  labels = c("bifrost" = "Bifrost",
+             "ggcat" = "GGCAT 2",
+             "metagraph_1g_anno" = "Metagraph (row-major)",
+             "themisto" = "Our algorithm",
+             "themisto_to_disk" = "Our algorithm to disk"),
+  name = "Method"
 )
 
 p = ggplot(df) +
@@ -26,6 +34,12 @@ p = ggplot(df) +
     breaks = 10^(5:12),
     minor_breaks = rep(1:9, times = 3) * 10^rep(5:12, each = 9)
   ) +
+  labs(
+    x = "# Genomes",
+    y = "Memory (bytes)",
+    color = "Method",
+  ) +
+  shared_legend + 
   theme_minimal() + shared_theme
 
 print(p)
@@ -43,6 +57,7 @@ p = ggplot(df) +
     breaks = 10^(0:6),
     minor_breaks = rep(1:9, times = 3) * 10^rep(0:6, each = 9)
   ) +
+  shared_legend + 
   theme_minimal() + shared_theme
 
 print(p)
