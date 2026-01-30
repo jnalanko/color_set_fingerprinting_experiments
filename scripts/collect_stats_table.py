@@ -57,7 +57,7 @@ def parse_stats_file(filename) -> dict:
             try:
                 stats[key] = float(value)
             except ValueError:
-                value = value.replace("%", "\\%") # Escape percentage for latex
+                value = value.replace("%", " \\%") # Escape percentage for latex and put a space
                 stats[key] = value
 
     return stats
@@ -67,7 +67,6 @@ def format_latex_table(rows):
     # Human-readable column names
     columns = [
         ("dataset", "Dataset"),
-        ("num_colors", "Genomes"),
         ("num_kmers", "$k$-mers"),
         ("key_kmer_frac_pct", r"Key $k$-mers (\%)"),
         ("num_color_sets", "Distinct sets"),
@@ -86,7 +85,12 @@ def format_latex_table(rows):
             return f"{v:.2f}"
         return str(v)
 
-    header = " & ".join("\\makecell[l]{" + label + "}" for _, label in columns) + r" \\"
+    #header = " & ".join("\\makecell[l]{" + label + "}" for _, label in columns) + r" \\"
+    header_row1 = "\multicolumn{1}{l}{Dataset} & \multicolumn{1}{l}{$k$-mers} & \multicolumn{1}{c}{Key} & \multicolumn{1}{l}{Distinct} & \multicolumn{1}{c}{Sparse} & \multicolumn{1}{l}{Dense} & \multicolumn{1}{c}{Mean} & \multicolumn{1}{c}{Mean} & \multicolumn{1}{l}{Unitigs} & \multicolumn{1}{c}{Mean} \\\\"
+    header_row2 = "\multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{c}{$k$-mers} & \multicolumn{1}{l}{color sets} & \multicolumn{1}{c}{color sets} & \multicolumn{1}{l}{color sets} & \multicolumn{1}{c}{distinct} & \multicolumn{1}{c}{$k$-mer} & \multicolumn{1}{l}{} & \multicolumn{1}{c}{unitig} \\\\"
+    header_row3 = "\multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{c}{} & \multicolumn{1}{l}{} & \multicolumn{1}{c}{} & \multicolumn{1}{l}{} & \multicolumn{1}{c}{set size} & \multicolumn{1}{c}{set size} & \multicolumn{1}{l}{} & \multicolumn{1}{c}{length} \\\\"
+
+    header = header_row1 + "\n" + header_row2 + "\n" + header_row3 + "\n"
 
     rows_tex = [
         " & ".join(fmt(row[k]) for k, _ in columns) + r" \\"
@@ -95,7 +99,7 @@ def format_latex_table(rows):
 
     # Narrow columns (tune widths as needed)
     colspec = (
-        "c r{1.0cm} r{1.2cm} r{0.8cm} r{1.4cm} r{1.4cm} r{1.4cm} r{1.0cm} r{1.0cm} r{1.6cm} r{1.3cm}"
+        "rrrrrrrrrrr"
     )
 
     return "\n".join([
@@ -122,7 +126,9 @@ for i in range(1, max_power_salmonella+1):
     stats = parse_stats_file(stats_file)
     log_stats = parse_log_file(log_file)
     for key in log_stats: stats[key] = log_stats[key]
-    stats["dataset"] = "Salmonella"
+
+    del stats["num_colors"]
+    stats["dataset"] = "S-" + str(n)
     rows.append(stats)
 
 for i in range(1, max_power_random+1):
@@ -132,7 +138,8 @@ for i in range(1, max_power_random+1):
     stats = parse_stats_file(stats_file)
     log_stats = parse_log_file(log_file)
     for key in log_stats: stats[key] = log_stats[key]
-    stats["dataset"] = "Random"
+    del stats["num_colors"]
+    stats["dataset"] = "R-" + str(n)
     rows.append(stats)
 
 print(format_latex_table(rows))
