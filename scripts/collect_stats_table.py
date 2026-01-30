@@ -86,7 +86,7 @@ def format_latex_table(rows):
             return f"{v:.2f}"
         return str(v)
 
-    header = " & ".join(label for _, label in columns) + r" \\"
+    header = " & ".join("\\makecell[l]{" + label + "}" for _, label in columns) + r" \\"
 
     rows_tex = [
         " & ".join(fmt(row[k]) for k, _ in columns) + r" \\"
@@ -95,7 +95,7 @@ def format_latex_table(rows):
 
     # Narrow columns (tune widths as needed)
     colspec = (
-        "c p{1.0cm} p{1.2cm} p{0.8cm} p{1.4cm} p{1.4cm} p{1.4cm} p{1.0cm} p{1.0cm} p{1.6cm} p{1.3cm}"
+        "c r{1.0cm} r{1.2cm} r{0.8cm} r{1.4cm} r{1.4cm} r{1.4cm} r{1.0cm} r{1.0cm} r{1.6cm} r{1.3cm}"
     )
 
     return "\n".join([
@@ -110,7 +110,9 @@ def format_latex_table(rows):
 
 
 
-max_power_salmonella = 4
+max_power_salmonella = 16
+max_power_random = 14
+
 rows = []
 
 for i in range(1, max_power_salmonella+1):
@@ -121,6 +123,16 @@ for i in range(1, max_power_salmonella+1):
     log_stats = parse_log_file(log_file)
     for key in log_stats: stats[key] = log_stats[key]
     stats["dataset"] = "Salmonella"
+    rows.append(stats)
+
+for i in range(1, max_power_random+1):
+    n = 2**i
+    stats_file = f"stats/random_{n}_d10000.thm2.stats"
+    log_file = f"logs/random_{n}_themisto_d10000.log"
+    stats = parse_stats_file(stats_file)
+    log_stats = parse_log_file(log_file)
+    for key in log_stats: stats[key] = log_stats[key]
+    stats["dataset"] = "Random"
     rows.append(stats)
 
 print(format_latex_table(rows))
