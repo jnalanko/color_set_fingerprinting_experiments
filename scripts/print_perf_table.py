@@ -86,7 +86,7 @@ def print_as_latex_table(rows):
                 min_mem = min(row[col], min_mem)
             if col.endswith("-time"):
                 min_time = min(row[col], min_time)
-            if col.endswith("-disk"):
+            if col.endswith("-colors_on_disk"):
                 min_disk = min(row[col], min_disk)
 
         row_tex_cells = []
