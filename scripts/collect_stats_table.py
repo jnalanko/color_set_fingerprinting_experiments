@@ -70,8 +70,8 @@ def format_latex_table(rows):
         ("num_kmers", "$k$-mers"),
         ("key_kmer_frac_pct", r"Key $k$-mers (\%)"),
         ("num_color_sets", "Distinct sets"),
-        ("num_dense", "Dense sets"),
         ("num_sparse", "Sparse sets"),
+        ("num_dense", "Dense sets"),
         ("mean_color_set_size", "Mean distinct set size"),
         ("mean_kmer_color_set_size", "Mean $k$-mer set size"),
         ("num_forward_unitigs", "Unitigs"),
@@ -86,9 +86,13 @@ def format_latex_table(rows):
         return str(v)
 
     #header = " & ".join("\\makecell[l]{" + label + "}" for _, label in columns) + r" \\"
-    header_row1 = "\multicolumn{1}{l}{Dataset} & \multicolumn{1}{l}{$k$-mers} & \multicolumn{1}{c}{Key} & \multicolumn{1}{l}{Distinct} & \multicolumn{1}{c}{Sparse} & \multicolumn{1}{l}{Dense} & \multicolumn{1}{c}{Mean} & \multicolumn{1}{c}{Mean} & \multicolumn{1}{l}{Unitigs} & \multicolumn{1}{c}{Mean} \\\\"
+    header_row1 = "\multicolumn{1}{l}{Dataset} & \multicolumn{1}{l}{$k$-mers} & \multicolumn{1}{c}{Key} & \multicolumn{1}{l}{Distinct} & \multicolumn{1}{c}{Dense} & \multicolumn{1}{l}{Sparse} & \multicolumn{1}{c}{Mean} & \multicolumn{1}{c}{Mean} & \multicolumn{1}{l}{Unitigs} & \multicolumn{1}{c}{Mean} \\\\"
     header_row2 = "\multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{c}{$k$-mers} & \multicolumn{1}{l}{color sets} & \multicolumn{1}{c}{color sets} & \multicolumn{1}{l}{color sets} & \multicolumn{1}{c}{distinct} & \multicolumn{1}{c}{$k$-mer} & \multicolumn{1}{l}{} & \multicolumn{1}{c}{unitig} \\\\"
     header_row3 = "\multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{c}{} & \multicolumn{1}{l}{} & \multicolumn{1}{c}{} & \multicolumn{1}{l}{} & \multicolumn{1}{c}{set size} & \multicolumn{1}{c}{set size} & \multicolumn{1}{l}{} & \multicolumn{1}{c}{length} \\\\"
+
+    header_row1 = "\multicolumn{1}{l}{Dataset} & \multicolumn{1}{l}{Distinct} & \multicolumn{1}{l}{Key} & \multicolumn{1}{l}{Distinct} & \multicolumn{1}{l}{Dense} & \multicolumn{1}{l}{Sparse} & \multicolumn{1}{l}{Mean} & \multicolumn{1}{l}{Mean} & \multicolumn{1}{l}{Number} & \multicolumn{1}{l}{Mean} \\\\"
+    header_row2 = "\multicolumn{1}{l}{} & \multicolumn{1}{l}{$k$-mers} & \multicolumn{1}{l}{$k$-mers} & \multicolumn{1}{l}{color sets} & \multicolumn{1}{l}{color sets} & \multicolumn{1}{l}{color sets} & \multicolumn{1}{l}{distinct} & \multicolumn{1}{l}{$k$-mer} & \multicolumn{1}{l}{of unitigs} & \multicolumn{1}{l}{unitig} \\\\"
+    header_row3 = "\multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{set size} & \multicolumn{1}{l}{set size} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{length} \\\\"
 
     header = header_row1 + "\n" + header_row2 + "\n" + header_row3 + "\n"
 
