@@ -28,7 +28,9 @@ p = ggplot(to_plot) +
       )
     )    
   ) +
-  scale_x_log10() +
+  scale_x_log10(
+    minor_breaks = rep(1:9, times = 5) * 10^rep(-1:5, each = 9)
+  ) +
   labs(
     x = "Number of genomes",
     y = "Fraction of key k-mers",
