@@ -35,7 +35,7 @@ def parse_stats_file(filename) -> dict:
         "Number of distinct color sets": "num_color_sets",
         "Mean size of distinct color sets": "mean_color_set_size",
         "Mean k-mer color set size": "mean_kmer_color_set_size",
-        "Fraction of key k-mers": "key_kmer_frac_pct",
+        "Fraction of key k-mers": "key_kmer_frac",
         "Number of forward unitigs (not bidirected)": "num_forward_unitigs",
         "Min unitig length": "min_unitig_len",
         "Max unitig length": "max_unitig_len",
@@ -57,18 +57,20 @@ def parse_stats_file(filename) -> dict:
             try:
                 stats[key] = float(value)
             except ValueError:
-                value = value.replace("%", " \\%") # Escape percentage for latex and put a space
+                if "%" in value:
+                    value = float(value.replace("%","")) / 100
+                #value = value.replace("%", " \\%") # Escape percentage for latex and put a space
                 stats[key] = value
 
     return stats
 
 def format_latex_table(rows):
 
-    # Human-readable column names
+    # Human-readable column names: TODO: not used in code anymore?
     columns = [
         ("dataset", "Dataset"),
         ("num_kmers", "$k$-mers"),
-        ("key_kmer_frac_pct", r"Key $k$-mers (\%)"),
+        ("key_kmer_frac", r"Key $k$-mers fraction"),
         ("num_color_sets", "Distinct sets"),
         ("num_sparse", "Sparse sets"),
         ("num_dense", "Dense sets"),
@@ -77,6 +79,10 @@ def format_latex_table(rows):
         ("num_forward_unitigs", "Unitigs"),
         ("mean_unitig_len", "Mean unitig length"),
     ]
+
+    # Put key k-mer fraction into percentage form
+    for row in rows:
+        row["key_kmer_frac"] = "{:.2f}".format(row["key_kmer_frac"] * 100) + " \\%"
 
     def fmt(v):
         if isinstance(v, int):
@@ -148,8 +154,14 @@ for i in range(1, max_power_random+1):
 
 print(format_latex_table(rows))
 
-#max_power_random = 14
+print()
+print("=====================")
+print()
 
-#for i in range(1, max_power_random):
-#    n = 2**i
-#    print(f"echo stats for random_{n} && themisto2 stats -t 32 -i themisto2/random_{n}_d10000.thm2 > stats/random_{n}_d10000.thm2.stats")
+# Print csv
+cols = rows[0].keys()
+print(",".join(cols))
+for row in rows:
+    print(",".join([str(row[col]) for col in cols]))
+
+
