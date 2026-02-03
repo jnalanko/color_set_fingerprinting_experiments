@@ -31,7 +31,7 @@ p = ggplot(to_plot) +
   scale_x_log10() +
   labs(
     x = "Number of genomes",
-    y = "Fraction of key -mers",
+    y = "Fraction of key k-mers",
     color = "Fraction",
     title = "Fraction of key k-mers"
   ) +
@@ -50,4 +50,4 @@ p = ggplot(to_plot) +
   )
 
 print(p)
-ggsave("plots/key_kmers.pdf")
+ggsave("plots/key_kmers.pdf", width = 7, height = 4)
