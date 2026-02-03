@@ -1,4 +1,5 @@
 from datetime import datetime, timezone
+import copy
 
 # This will be needed for breaking down running time across phases
 def seconds_since_2026_start(timestr: str) -> int:
@@ -152,7 +153,7 @@ for i in range(1, max_power_random+1):
     stats["dataset"] = "R-" + str(n)
     rows.append(stats)
 
-print(format_latex_table(rows))
+print(format_latex_table(copy.deepcopy(rows[:]))) # Make a copy because this function modifies the rows
 
 print()
 print("=====================")
