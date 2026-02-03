@@ -1,7 +1,7 @@
 library(ggplot2)
 library(tidyr)
 library(dplyr)
-library(cowplot)
+#library(cowplot)
 
 df = read.csv("results/table.tsv", sep = "\t", header = TRUE)
 df$tool = as.factor(df$tool)
