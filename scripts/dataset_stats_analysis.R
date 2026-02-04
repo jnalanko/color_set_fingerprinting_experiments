@@ -19,6 +19,7 @@ to_plot = pivot_longer(new_df, cols = c("lower_bound", "observed"))
 
 p = ggplot(to_plot) + 
   geom_line(aes(x = n_genomes, y = value, color = name)) + 
+  geom_point(aes(x = n_genomes, y = value, color = name)) + 
   facet_wrap(
     ~dataset_type,
     labeller = labeller(
